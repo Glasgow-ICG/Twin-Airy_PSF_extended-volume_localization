@@ -141,3 +141,7 @@ _"Precision_test_highNA"_ are the estimated xyz locations of a quantum dot for 1
 ## Known issues ##
 On Ubuntu 18.04 and MATLAB 2019b figure titles appear only on the last figure. However, the numerical results appear to be the same when running on Windows 10 and MATLAB 2019a or Ubuntu 18.04 MATLAB 2019b.
 
+
+## Licenses ##
+The code in this repository is under GNU General Public License v3.0 https://www.gnu.org/licenses/gpl-3.0.en.html
+The raw data and images produced are under CC BY 4.0 license https://creativecommons.org/licenses/by/4.0/
