@@ -49,7 +49,7 @@ Folder _"Raw_data_blood_flow"_ contains the raw images of tracers flowing in the
 
 #### **Codes_blood_flow_tracking** ####
 
-Folder _"Codes_blood_flow_tracking"_ contains the matlab scripts and functions that were used to process the zebrafish blood flow measurement data, i.e. to localize and track the tracer beads in 3D.
+Folder _"Codes_blood_flow_tracking"_ contains the MATLAB scripts and functions that were used to process the zebrafish blood flow measurement data, i.e. to localize and track the tracer beads in 3D.
 
 _"calib.m"_ performs the xyz calibration using the recorded PSF calibration stack, outputting file named _"CALIB.mat"_ with its three columns being the two-lobe disparity, the axial coordinate, and the lateral shift of the PSF;
 
@@ -121,7 +121,7 @@ Folder _"Low_NA_fluorescent_beads_scenario"_ contains the fluorescent bead measu
 
 ### **Code_for_Cramer_Rao_lower_bound_analysis.zip** ###
 
-_"Code_for_Cramer_Rao_lower_bound_analysis.zip"_ contains two matlab scripts for the Cramer-Rao lower bound simulations.
+_"Code_for_Cramer_Rao_lower_bound_analysis.zip"_ contains two MATLAB scripts for the Cramer-Rao lower bound simulations.
 
 _"Calculate_Cramer_Rao_lower_bounds.m"_ calculates and saves the Cramer-Rao lower bounds for the twin-Airy PSFs and single airy PSFs with various peak modulations (i.e. alpha) based on shot given the specified parameters including wavelength, numerical aperture, magnification, pixel size, number of detected photons etc.
 
