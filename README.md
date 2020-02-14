@@ -1,5 +1,5 @@
 # Twin-Airy-PSF
-Repository containing matlab scripts for the **Twin-Airy point-spread function for extended-volume particle localization** paper. It is assumed that the folder structure is preserved as described below. Briefly, each experiment is contained in a seperate directory, which contains subdirectories of MATLAB scripts, and raw data for that experiment. Due to the relatively large size of the data , it is hosted by the University and Glasgow. The raw data can be found http://dx.doi.org/10.5525/gla.researchdata.854. Once requested, you should usually receive a link to the data on the same day.
+Repository containing MATLAB scripts for the **Twin-Airy point-spread function for extended-volume particle localization** paper. It is assumed that the folder structure is preserved as described below. Briefly, each experiment is contained in a seperate directory, which contains subdirectories of MATLAB scripts, and raw data for that experiment. Due to the relatively large size of the data , it is hosted by the University and Glasgow. The raw data can be found here: http://dx.doi.org/10.5525/gla.researchdata.854.
 
 ## Supplementary Data and Codes: Twin-Airy point-spread function for extended-volume particle localization ##
 
