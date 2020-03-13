@@ -5,17 +5,14 @@
 % will be taken into account in the "Flow_tracking.m" script.
 
 clear all;close all;
-%% ----load in-focus PSF image----
+%% ----get in focus PSFs----
 PSF=im2double(imread(fullfile('..', 'Raw_data_PSF_stack','psf (91).tif')));Size=size(PSF);
 %imshow(PSF,[])
 % ----get rid of background----
 bkgrd=mean(mean(PSF(end/2-100:end/2+100,end/2:end/2+200)));
 PSF=PSF-ones(Size(1),Size(2)).*bkgrd;
-% --get infocus PSFs as deconvolution kernel, i.e. PSFP(upper) and PSFN(lower)--
-% setting parameters: P_row and P_col are the coordinates of the brightest
-% pixel in the TA-PSF upper half; N_row and N_col are the coordinates of the brightest
-% pixel in the TA-PSF lower half; psfSize is the cropped size of the PSF halves 
-P_row=924;P_col=848;N_row=1091;N_col=848;psfSize=100;imgSize_row=924;imgSize_col=1140;% these parameters should keep same as in calib.m
+% ----get infocus PSFs----
+P_row=924;P_col=848;N_row=1091;N_col=848;psfSize=100;imgSize_row=924;imgSize_col=1140;
 PSFP=zeros(imgSize_row,imgSize_col);PSFN=PSFP;
 PSFP(floor(imgSize_row/2)-psfSize:floor(imgSize_row/2)+psfSize,floor(imgSize_col/2)-psfSize:floor(imgSize_col/2)+psfSize)...
     =PSF(P_row-psfSize:P_row+psfSize,P_col-psfSize:P_col+psfSize);
@@ -46,7 +43,7 @@ for t=11:5000
 %     plot(centsn(:,2),centsn(:,4),'r*');
 %     hold off
     %% ----match centroids between recp and recn----
-    [matchedP, matchedN]=MatchCentroids(centsp,centsn,2);%2
+    [matchedP, matchedN]=MatchCentroids(centsp,centsn);
     %figure;imshowpair(RECP,RECN);hold on
     %plot(matchedP(:,2),matchedP(:,4),'r*');
     %plot(matchedN(:,2),matchedN(:,4),'g*');
