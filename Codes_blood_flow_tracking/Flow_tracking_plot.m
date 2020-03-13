@@ -19,7 +19,7 @@ LocsList(:,1)=LocsList(:,1).*6.5./20;
 LocsList(:,2)=LocsList(:,2).*6.5./20;
 
 % --tracking using Crocker et al. IDL particle tracking function: track.m
-param=struct('mem',3,'good',10,'dim',3,'quiet',0);
+param=struct('mem',5,'good',5,'dim',3,'quiet',0);%10,3
 FlowTraj=track(LocsList,20,param);
 save('FlowTraj','FlowTraj')
 
