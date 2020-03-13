@@ -1,11 +1,11 @@
-function [ matchedP,matchedN ] = MatchCentroids( centrP,centrN,intsty_ratio )
+function [ matchedP,matchedN ] = MatchCentroids( centrP,centrN )
+
 % This function matches the centroids in the recovered upper lobes of the
 % twin-Airy PSFs to the recovered lower lobes.
 
 % Input parameters:
 % centrP: array of centroids (xy coordinates) in the upper lobes
 % centrN: array of centroids in the lower lobes
-% intsty_ratio: acceptable intensity ratio between the two main lobes
 
 % Output: lists of matched centroids in upper lobes and the lower lobes 
 
@@ -25,7 +25,10 @@ for i=1:SL(1) %loop within centroids P
         deltaY=centrN(j,4)-centrP(i,4);
         temp=(deltaY_uplmt-deltaY_lwlmt)/2;
         % skip if it fails to meet the matching criteria
-        if deltaX>deltaX_uplmt||deltaY>deltaY_uplmt||deltaY<deltaY_lwlmt||centrP(i,1)/centrN(j,1)>intsty_ratio||centrP(i,1)/centrN(j,1)<(1/intsty_ratio) %if the distance is too large, omit this point
+        
+        %check two-lobe seperation, intensity difference, ellipticity difference and lateral allignment
+        if deltaX>deltaX_uplmt||deltaY>deltaY_uplmt||deltaY<deltaY_lwlmt||abs(centrP(i,1)-centrN(j,1))/max(centrP(i,1),centrN(j,1))>0.5||... %0.28 %0.5 %0.8 %1
+                abs(centrP(i,3)-centrN(j,3))/max(centrP(i,3),centrN(j,3))>0.25||abs(centrP(i,5)-centrN(j,5))/max(centrP(i,5),centrN(j,5))>0.25 %0.5 %1 
             continue
         end
         if abs(deltaY-mid_point)<temp&&temp==(deltaY_uplmt-deltaY_lwlmt)/2 %this could be the matched point if there is no point more closer
